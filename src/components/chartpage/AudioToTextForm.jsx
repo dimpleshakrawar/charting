@@ -209,7 +209,7 @@ const AudioToTextForm = ({
                 <p className="text-base w-1/2">Bleeding on Probing</p>
                 <div className="flex gap-1 py-1 px-2">
                   <p
-                    className={`h-5 w-5 border border-gray-400 rounded-md ${
+                    className={`h-5 w-5 border cursor-pointer border-gray-400 rounded-md ${
                       toothDetails?.Bleeding_Probing_distovest.toLowerCase() === "yes"
                         ? "bg-green-400"
                         : "bg-gray-300"
@@ -223,7 +223,7 @@ const AudioToTextForm = ({
                     }}
                   ></p>
                   <p
-                    className={`h-5 w-5 border border-gray-400 rounded-md ${
+                    className={`h-5 w-5 border cursor-pointer border-gray-400 rounded-md ${
                       toothDetails?.Bleeding_Probing_vestibular.toLowerCase() === "yes"
                         ? "bg-green-400"
                         : "bg-gray-300"
@@ -237,7 +237,7 @@ const AudioToTextForm = ({
                     }}
                   ></p>
                   <p
-                    className={`h-5 w-5 border border-gray-400 rounded-md ${
+                    className={`h-5 w-5 cursor-pointer border border-gray-400 rounded-md ${
                       toothDetails?.Bleeding_Probing_mesiovest.toLowerCase() === "yes"
                         ? "bg-green-400"
                         : "bg-gray-300"
@@ -257,7 +257,7 @@ const AudioToTextForm = ({
                 <p className="text-base w-1/2">Plaque</p>
                 <div className="flex gap-1 py-1 px-2">
                   <p
-                    className={`h-5 w-5 border border-gray-400 rounded-md ${
+                    className={`h-5 w-5 cursor-pointer border border-gray-400 rounded-md ${
                       toothDetails?.Bleeding_Probing_mesioling.toLowerCase() === "yes"
                         ? "bg-green-400"
                         : "bg-gray-300"
@@ -271,7 +271,7 @@ const AudioToTextForm = ({
                     }}
                   ></p>
                   <p
-                    className={`h-5 w-5 border border-gray-400 rounded-md ${
+                    className={`h-5 w-5 cursor-pointer border border-gray-400 rounded-md ${
                       toothDetails?.Bleeding_Probing_lingual.toLowerCase() === "yes"
                         ? "bg-green-400"
                         : "bg-gray-300"
@@ -285,7 +285,7 @@ const AudioToTextForm = ({
                     }}
                   ></p>
                   <p
-                    className={`h-5 w-5 border border-gray-400 rounded-md ${
+                    className={`h-5 w-5 cursor-pointer border border-gray-400 rounded-md ${
                       toothDetails?.Bleeding_Probing_distoling.toLowerCase() === "yes"
                         ? "bg-green-400"
                         : "bg-gray-300"
