@@ -79,8 +79,8 @@ const TeethTable = ({ allData, toothDetails }) => {
   // }, []);
 
   return (
-    <div className="w-full">
-      <div className="flex px-4 py-3">
+    <div className="w-full bg-white rounded-md">
+      <div className="flex">
         <div className="">
           <table className="border-collapse border border-gray-200 w-full">
             <thead>

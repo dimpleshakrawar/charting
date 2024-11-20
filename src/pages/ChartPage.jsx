@@ -160,7 +160,7 @@ const ChartPage = () => {
   return (
     <div className="p-8">
       <h2 className="text-4xl font-semibold text-center">PERIODONTAL CHART</h2>
-      <div className="border border-gray-100 m-4 p-4 bg-gray-200">
+      <div className="border shadow-md border-gray-100 m-4 p-4 bg-gray-200">
         <div className="flex justify-between mb-4">
           <div className="flex gap-2 items-center">
             <label className="">Date</label>
@@ -220,7 +220,7 @@ const ChartPage = () => {
         />
       </div>
 
-      <div className="px-7 w-full mb-8">
+      <div className="p-7 w-full mb-8 bg-gray-200 rounded-md">
         <TeethTable
           // selectedColumn={selectedColumn}
           setToothDetails={setToothDetails}
