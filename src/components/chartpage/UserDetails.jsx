@@ -1,23 +1,23 @@
 // import { Input } from "../components/ui/input"
 import { Input } from "../ui/input"
 
-const UserDetails = () => {
+const UserDetails = ({basicInfo}) => {
     return (
         <div >
             <div className="flex justify-between p-2 py-4">
                 <div className="flex gap-2 items-center">
                     <label className="whitespace-nowrap">Patient Last Name</label>
-                    <Input/>
+                    <Input value={basicInfo?.last_name}/>
                 </div>
 
                 <div className="flex  gap-2 items-center">
                     <label className="whitespace-nowrap">First Name</label>
-                    <Input/>
+                    <Input value={basicInfo?.first_name}/>
                 </div>
 
                 <div className="flex  gap-2 items-center">
                     <label className="whitespace-nowrap">Date of Birth</label>
-                    <Input/>
+                    <Input value={basicInfo?.date_of_birth}/>
                 </div>
             </div>
         </div>

@@ -1,609 +1,217 @@
-import React, { Children } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
-// import './TeethTable.css';
 
-const teethData1 = [
-  { id: 1, name: "Tooth 18" },
-  { id: 2, name: "Tooth 17" },
-  { id: 3, name: "Tooth 16" },
-  { id: 4, name: "Tooth 15" },
-  { id: 5, name: "Tooth 14" },
-  { id: 5, name: "Tooth 13" },
-  { id: 5, name: "Tooth 12" },
-  { id: 5, name: "Tooth 11" },
+const toothNames = [
+  { id: 1, name: "Mobility" },
+  { id: 2, name: "Implant" },
+  { id: 3, name: "Furcation" },
+  { id: 4, name: "Bleeding on Probing" },
+  { id: 5, name: "Plaque" },
+  { id: 6, name: "Gingival Margin" },
+  { id: 7, name: "Probing Depth" },
   // Add more teeth names as needed
 ];
 
-const siderbar18 = {
-  column: "18",
-  content: [
-    { id: 1, name: "Mobility", value: "" },
-    { id: 2, name: "Implant", value: "" },
-    { id: 3, name: "Furcation", value: "" },
-    {
-      id: 4,
-      name: "Bleeding on Probing",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 5,
-      name: "Plaque",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 6,
-      name: "Gingival Margin",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-    {
-      id: 7,
-      name: "Probing depth",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-  ],
+const TeethTable = ({ allData, toothDetails }) => {
+  const [activeTeethNuber, setActiveTeethNumber] = useState({});
+  // const [siderbar11, setSidebar11] = useState()
 
-  // Add more teeth names as needed
-};
-
-const siderbar17 = {
-  column: "17",
-  content: [
-    { id: 1, name: "Mobility", value: "" },
-    { id: 2, name: "Implant", value: "" },
-    { id: 3, name: "Furcation", value: "" },
-    {
-      id: 4,
-      name: "Bleeding on Probing",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 5,
-      name: "Plaque",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 6,
-      name: "Gingival Margin",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-    {
-      id: 7,
-      name: "Probing depth",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-  ],
-
-  // Add more teeth names as needed
-};
-
-const siderbar16 = {
-  column: "16",
-  content: [
-    { id: 1, name: "Mobility", value: "" },
-    { id: 2, name: "Implant", value: "" },
-    { id: 3, name: "Furcation", value: "" },
-    {
-      id: 4,
-      name: "Bleeding on Probing",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 5,
-      name: "Plaque",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 6,
-      name: "Gingival Margin",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-    {
-      id: 7,
-      name: "Probing depth",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-  ],
-
-  // Add more teeth names as needed
-};
-
-const siderbar15 = {
-  column: "15",
-  content: [
-    { id: 1, name: "Mobility", value: "" },
-    { id: 2, name: "Implant", value: "" },
-    { id: 3, name: "Furcation", value: "" },
-    {
-      id: 4,
-      name: "Bleeding on Probing",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 5,
-      name: "Plaque",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 6,
-      name: "Gingival Margin",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-    {
-      id: 7,
-      name: "Probing depth",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-  ],
-
-  // Add more teeth names as needed
-};
-
-const siderbar14 = {
-  column: "14",
-  content: [
-    { id: 1, name: "Mobility", value: "" },
-    { id: 2, name: "Implant", value: "" },
-    { id: 3, name: "Furcation", value: "" },
-    {
-      id: 4,
-      name: "Bleeding on Probing",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 5,
-      name: "Plaque",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 6,
-      name: "Gingival Margin",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-    {
-      id: 7,
-      name: "Probing depth",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-  ],
-
-  // Add more teeth names as needed
-};
-
-const siderbar13 = {
-  column: "13",
-  content: [
-    { id: 1, name: "Mobility", value: "" },
-    { id: 2, name: "Implant", value: "" },
-    { id: 3, name: "Furcation", value: "" },
-    {
-      id: 4,
-      name: "Bleeding on Probing",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 5,
-      name: "Plaque",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 6,
-      name: "Gingival Margin",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-    {
-      id: 7,
-      name: "Probing depth",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-  ],
-
-  // Add more teeth names as needed
-};
-
-const siderbar12 = {
-  column: "12",
-  content: [
-    { id: 1, name: "Mobility", value: "" },
-    { id: 2, name: "Implant", value: "" },
-    { id: 3, name: "Furcation", value: "" },
-    {
-      id: 4,
-      name: "Bleeding on Probing",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 5,
-      name: "Plaque",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 6,
-      name: "Gingival Margin",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-    {
-      id: 7,
-      name: "Probing depth",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-  ],
-
-  // Add more teeth names as needed
-};
-
-const siderbar11 = {
-  column: "11",
-  content: [
-    { id: 1, name: "Mobility", value: "" },
-    { id: 2, name: "Implant", value: "" },
-    { id: 3, name: "Furcation", value: "" },
-    {
-      id: 4,
-      name: "Bleeding on Probing",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 5,
-      name: "Plaque",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "" },
-        { id: 2, name: "b", value: "" },
-        { id: 3, name: "c", value: "" },
-      ],
-    },
-    {
-      id: 6,
-      name: "Gingival Margin",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-    {
-      id: 7,
-      name: "Probing depth",
-      value: "",
-      Children: [
-        { id: 1, name: "a", value: "0" },
-        { id: 2, name: "b", value: "0" },
-        { id: 3, name: "c", value: "0" },
-      ],
-    },
-  ],
-
-  // Add more teeth names as needed
-};
-
-const teethData2 = [
-  { id: 1, name: "Tooth 21" },
-  { id: 2, name: "Tooth 22" },
-  { id: 3, name: "Tooth 23" },
-  { id: 4, name: "Tooth 24" },
-  { id: 5, name: "Tooth 25" },
-  { id: 5, name: "Tooth 26" },
-  { id: 5, name: "Tooth 27" },
-  { id: 5, name: "Tooth 28" },
-  // Add more teeth names as needed
-];
-
-const TeethTable = () => {
-  // Function to trigger text-to-speech
-  const handleSpeak = (text) => {
-    if ("speechSynthesis" in window) {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "en-US"; // Set language (English US)
-      speechSynthesis.speak(utterance);
-    } else {
-      alert("Sorry, your browser does not support text-to-speech.");
-    }
+  const setDataToTable = () => {
+    // setSidebars((prevSidebars) =>
+    //   prevSidebars.map((sidebar) =>
+    //     sidebar.column == toothDetails?.toothName
+    //       ? {
+    //           Mobility: toothDetails?.Mobility,
+    //           Implant: toothDetails?.Implant,
+    //           Furcation: toothDetails?.Furcation,
+    //           Bleeding_Probing: {
+    //             distovest: toothDetails?.Bleeding_Probing_distovest,
+    //             vestibular: toothDetails?.Bleeding_Probing_vestibular,
+    //             mesiovest: toothDetails?.Bleeding_Probing_mesiovest,
+    //           },
+    //           Plaque: {
+    //             mesioling: toothDetails?.Bleeding_Probing_mesioling,
+    //             lingual: toothDetails?.Bleeding_Probing_lingual,
+    //             distoling: toothDetails?.Bleeding_Probing_distoling,
+    //           },
+    //           Gingival_Margin: {
+    //             distovest: toothDetails?.Gingival_Margin_distovest,
+    //             vestibular: toothDetails?.Gingival_Margin_vestibular,
+    //             mesiovest: toothDetails?.Gingival_Margin_mesiovest,
+    //           },
+    //           Probing_Depth: {
+    //             mesioling: toothDetails?.Gingival_Margin_mesioling,
+    //             lingual: toothDetails?.Gingival_Margin_lingual,
+    //             distoling: toothDetails?.Gingival_Margin_distoling,
+    //           },
+    //         }
+    //       : sidebar
+    //   )
+    // );
+    // setActiveTeethNumber({
+    //   Mobility: toothDetails?.Mobility,
+    //   Implant: toothDetails?.Implant,
+    //   Furcation: toothDetails?.Furcation,
+    //   Bleeding_Probing: {
+    //     distovest: toothDetails?.Bleeding_Probing_distovest,
+    //     vestibular: toothDetails?.Bleeding_Probing_vestibular,
+    //     mesiovest: toothDetails?.Bleeding_Probing_mesiovest,
+    //     mesioling: toothDetails?.Bleeding_Probing_mesioling,
+    //     lingual: toothDetails?.Bleeding_Probing_lingual,
+    //     distoling: toothDetails?.Bleeding_Probing_distoling,
+    //   },
+    //   Gingival_Margin: {
+    //     distovest: toothDetails?.Gingival_Margin_distovest,
+    //     vestibular: toothDetails?.Gingival_Margin_vestibular,
+    //     mesiovest: toothDetails?.Gingival_Margin_mesiovest,
+    //     mesioling: toothDetails?.Gingival_Margin_mesioling,
+    //     lingual: toothDetails?.Gingival_Margin_lingual,
+    //     distoling: toothDetails?.Gingival_Margin_distoling,
+    //   },
+    // });
+    // }
   };
 
+  // useEffect(() => {
+  //   if (toothDetails) {
+  //     setDataToTable();
+  //   }
+  // }, []);
+
   return (
-    <div>
-      {/* <div className="flex">
-        {teethData1?.map((data) => (
-          <div key={data?.id}>
-            <p>{data?.name}</p>
-          </div>
-        ))}
-      </div> */}
+    <div className="w-full">
+      <div className="flex px-4 py-3">
+        <div className="">
+          <table className="border-collapse border border-gray-200 w-full">
+            <thead>
+              <tr className="w-16">
+                <th className="border border-gray-200 p-2 text-left text-xs w-10">
+                  Tooth Name
+                </th>
+                {allData?.map((sidebar, index) => (
+                  <th
+                    key={index}
+                    className="border border-gray-200 p-2 text-center text-xs w-10"
+                  >
+                    {sidebar?.column === "none" ? "" : sidebar?.column}
+                  </th>
+                ))}
+              </tr>
+            </thead>
 
-      <div className="w-full">
-        <div className="flex w-1/2">
-          {/* 18th column */}
-          <div className="">
-            <p>{siderbar18?.column}</p>
-            {siderbar18?.content?.map((toothName) => (
-              <div key={toothName.id} className="flex">
-                {toothName?.name}
-                {toothName?.Children ? (
-                  toothName?.Children.map((data) => (
-                    <div key={data?.id}>
-                      <Input type="checkbox" />
+            <tbody>
+              <tr className="h-full border-none">
+                <td className="flex h-full flex-col justify-between gap-4 p-1 font-medium text-xs w-32">
+                  {toothNames?.map((toothName) => (
+                    <div key={toothName?.id} className="h-full">
+                      <p className="">{toothName?.name || ""}</p>
                     </div>
-                  ))
-                ) : (
-                  <Input type="text" className="" />
-                )}
-              </div>
-            ))}
-          </div>
+                  ))}
+                </td>
 
-          {/* 17th column */}
-          <div className="">
-            <p>{siderbar17?.column}</p>
-            {siderbar17?.content?.map((toothName) => (
-              <div key={toothName.id} className="flex">
-                {toothName?.name}
-                {toothName?.Children ? (
-                  toothName?.Children.map((data) => (
-                    <div key={data?.id}>
-                      <Input type="checkbox" />
-                    </div>
-                  ))
-                ) : (
-                  <Input type="text" />
-                )}
-              </div>
-            ))}
-          </div>
+                {allData?.map((sidebar, colIndex) => (
+                  <td key={colIndex} className="border border-gray-200 p-1">
+                    <div className="flex flex-col justify-center items-center gap-1 w-[4rem] h-[13.2rem]">
+                      {["Mobility", "Implant", "Furcation"].map((key) => (
+                        <div key={key} className={`w-6 h-6 `}>
+                          <p
+                            key={key}
+                            className={`text-center h-5 w-5 ${
+                              key === "Furcation"
+                                ? "rounded-full"
+                                : "border-none rounded-none"
+                            } ${(key === "Furcation" && sidebar?.[key]?.includes("2")) ? "border border-gray-500" : ""} mb-1`}
+                          >
+                            <p
+                              className={`text-xs ${key === "Furcation" && 
+                                sidebar?.[key]?.includes("1")
+                                  ? "h-5 w-5 rounded-full border-2 border-gray-500 mb-1"
+                                  : key === "Furcation" && sidebar?.[key]?.includes("2")
+                                  ? "bg-gray-500 h-[50%] w-full border- border-gray-500 rounded-t-full"
+                                  : key === "Furcation" && sidebar?.[key]?.includes("3")
+                                  ? "bg-gray-500 rounded-full w-full h-full"
+                                  : ""
+                              } `}
+                            > {key !== "Furcation" ?  (sidebar?.[key]) :""} </p>
+                            {/* {key !== "Furcation" ?  (sidebar?.[key]) :""} */}
+                          </p>
+                        </div>
+                      ))}
 
-          {/* 16th column */}
-          <div className="">
-            <p>{siderbar16?.column}</p>
-            {siderbar16?.content?.map((toothName) => (
-              <div key={toothName.id} className="flex">
-                {toothName?.name}
-                {toothName?.Children ? (
-                  toothName?.Children.map((data) => (
-                    <div key={data?.id}>
-                      <Input type="checkbox" />
-                    </div>
-                  ))
-                ) : (
-                  <Input type="text" />
-                )}
-              </div>
-            ))}
-          </div>
+                      <div className="flex gap-1 ">
+                        {Object.entries(sidebar?.Bleeding_Probing || {}).map(
+                          ([key, value]) => (
+                            <p
+                              key={key}
+                              className={`h-5 w-5 mb-2 border text-xs border-gray-200 rounded-md ${
+                                value === "yes" ? "bg-green-400" : "bg-gray-200"
+                              }`}
+                            ></p>
+                          )
+                        )}
+                      </div>
 
-          {/* 15th column */}
-          <div className="">
-            <p>{siderbar15?.column}</p>
-            {siderbar15?.content?.map((toothName) => (
-              <div key={toothName.id} className="flex">
-                {toothName?.name}
-                {toothName?.Children ? (
-                  toothName?.Children.map((data) => (
-                    <div key={data?.id}>
-                      <Input type="checkbox" />
-                    </div>
-                  ))
-                ) : (
-                  <Input type="text" />
-                )}
-              </div>
-            ))}
-          </div>
+                      <div className="flex gap-1">
+                        {Object.entries(sidebar?.Plaque || {}).map(
+                          ([key, value]) => (
+                            <p
+                              key={key}
+                              className={`h-5 w-5 mb-2 text-xs border border-gray-200 rounded-md ${
+                                value === "yes" ? "bg-green-400" : "bg-gray-200"
+                              }`}
+                            ></p>
+                          )
+                        )}
+                      </div>
 
-          {/* 14th column */}
-          <div className="">
-            <p>{siderbar14?.column}</p>
-            {siderbar14?.content?.map((toothName) => (
-              <div key={toothName.id} className="flex">
-                {toothName?.name}
-                {toothName?.Children ? (
-                  toothName?.Children.map((data) => (
-                    <div key={data?.id}>
-                      <Input type="checkbox" />
-                    </div>
-                  ))
-                ) : (
-                  <Input type="text" />
-                )}
-              </div>
-            ))}
-          </div>
+                      <div className="flex justify-between gap-1">
+                        {Object.entries(sidebar?.Gingival_Margin || {}).map(
+                          ([key, value]) => (
+                            // <Input
+                            //   key={key}
+                            //   type="text"
+                            //   className="h-4 text-xs px-0 pl-1 border !border-gray-300 rounded"
+                            //   value={value || ""}
+                            //   disabled
+                            // />
+                            <p
+                              key={key}
+                              className={`border h-5 w-5 border-gray-300 text-xs px-1 rounded-sm  mb-1 `}
+                            >
+                              {value || ""}
+                            </p>
+                          )
+                        )}
+                      </div>
 
-          {/* 13th column */}
-          <div className="">
-            <p>{siderbar13?.column}</p>
-            {siderbar13?.content?.map((toothName) => (
-              <div key={toothName.id} className="flex">
-                {toothName?.name}
-                {toothName?.Children ? (
-                  toothName?.Children.map((data) => (
-                    <div key={data?.id}>
-                      <Input type="checkbox" />
+                      <div className="flex justify-between gap-1">
+                        {Object.entries(sidebar?.Probing_Depth || {}).map(
+                          ([key, value]) => (
+                            // <Input
+                            //   key={key}
+                            //   type="text"
+                            //   className="h-4 text-xs px-0 pl-1 w-full border border-gray-300 rounded"
+                            //   value={value || ""}
+                            //   disabled
+                            //   // placeholder={key.replace(/_/g, " ")}
+                            // />
+                            <p
+                              key={key}
+                              className={`border h-5 w-5 border-gray-300 text-xs px-1 rounded-sm  mb-0 `}
+                            >
+                              {value || ""}
+                            </p>
+                          )
+                        )}
+                      </div>
                     </div>
-                  ))
-                ) : (
-                  <Input type="text" />
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* 12th column */}
-          <div className="">
-            <p>{siderbar12?.column}</p>
-            {siderbar12?.content?.map((toothName) => (
-              <div key={toothName.id} className="flex">
-                {toothName?.name}
-                {toothName?.Children ? (
-                  toothName?.Children.map((data) => (
-                    <div key={data?.id}>
-                      <Input type="checkbox" />
-                    </div>
-                  ))
-                ) : (
-                  <Input type="text" />
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* 11th column */}
-          <div className="">
-            <p>{siderbar11?.column}</p>
-            {siderbar11?.content?.map((toothName) => (
-              <div key={toothName.id} className="flex">
-                {toothName?.name}
-                {toothName?.Children ? (
-                  toothName?.Children.map((data) => (
-                    <div key={data?.id}>
-                      <Input type="checkbox" />
-                    </div>
-                  ))
-                ) : (
-                  <Input type="text" />
-                )}
-              </div>
-            ))}
-          </div>
+                  </td>
+                ))}
+              </tr>
+              {/* ))} */}
+            </tbody>
+          </table>
         </div>
-
-        <div className="w-1/2"></div>
       </div>
     </div>
   );
