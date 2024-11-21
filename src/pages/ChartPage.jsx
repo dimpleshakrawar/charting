@@ -97,6 +97,7 @@ const ChartPage = () => {
   };
 
   const handleSubmit = (toothInfo) => {
+    console.log(toothDetails,"toothdetails")
     setAllData((prevSidebars) =>
       prevSidebars.map((sidebar) =>
         sidebar.column == toothDetails?.toothNumber
@@ -220,7 +221,7 @@ const ChartPage = () => {
         />
       </div>
 
-      <div className="p-7 w-full mb-8 bg-gray-200 rounded-md">
+      <div className="p-2 w-full mb-8 bg-gray-200 rounded-md">
         <TeethTable
           // selectedColumn={selectedColumn}
           setToothDetails={setToothDetails}

@@ -111,7 +111,7 @@ const TeethTable = ({ allData, toothDetails }) => {
 
                 {allData?.map((sidebar, colIndex) => (
                   <td key={colIndex} className="border border-gray-200 p-1">
-                    <div className="flex flex-col justify-center items-center gap-1 w-[4rem] h-[13.2rem]">
+                    <div className="flex flex-col justify-center items-center gap-1 w-[3.6rem] h-[13.2rem] mb-3">
                       {["Mobility", "Implant", "Furcation"].map((key) => (
                         <div key={key} className={`w-6 h-6 `}>
                           <p
@@ -143,7 +143,7 @@ const TeethTable = ({ allData, toothDetails }) => {
                           ([key, value]) => (
                             <p
                               key={key}
-                              className={`h-5 w-5 mb-2 border text-xs border-gray-200 rounded-md ${
+                              className={`h-4 w-4 mb-3 mt-4 border text-xs border-gray-200 rounded-md ${
                                 value === "yes" ? "bg-green-400" : "bg-gray-200"
                               }`}
                             ></p>
@@ -151,12 +151,12 @@ const TeethTable = ({ allData, toothDetails }) => {
                         )}
                       </div>
 
-                      <div className="flex gap-1">
+                      <div className="flex  gap-1">
                         {Object.entries(sidebar?.Plaque || {}).map(
                           ([key, value]) => (
                             <p
                               key={key}
-                              className={`h-5 w-5 mb-2 text-xs border border-gray-200 rounded-md ${
+                              className={`h-4 w-4 mb-4 text-xs border border-gray-200 rounded-md ${
                                 value === "yes" ? "bg-green-400" : "bg-gray-200"
                               }`}
                             ></p>
@@ -176,7 +176,7 @@ const TeethTable = ({ allData, toothDetails }) => {
                             // />
                             <p
                               key={key}
-                              className={`border h-5 w-5 border-gray-300 text-xs px-1 rounded-sm  mb-1 `}
+                              className={`border h-4 w-4 border-gray-300 text-[10px] px-1 rounded-sm  mb-3 `}
                             >
                               {value || ""}
                             </p>
@@ -197,7 +197,7 @@ const TeethTable = ({ allData, toothDetails }) => {
                             // />
                             <p
                               key={key}
-                              className={`border h-5 w-5 border-gray-300 text-xs px-1 rounded-sm  mb-0 `}
+                              className={`border h-4 w-4 border-gray-300 text-[11px] text-center rounded-sm  mb-0 `}
                             >
                               {value || ""}
                             </p>
